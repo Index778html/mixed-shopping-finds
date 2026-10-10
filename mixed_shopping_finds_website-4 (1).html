@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f72585">
+<title>Mixed Shopping Finds</title>
+<style>
+:root{--pink:#f72585;--purple:#7209b7;--blue:#4361ee;--cyan:#4cc9f0;--yellow:#ffd166;--ink:#172554;--muted:#64748b;--bg:#fffafd}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#182033}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+.top-strip{background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));color:#fff;text-align:center;padding:8px 12px;font-size:12px;font-weight:700;letter-spacing:.3px}
+header{background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 4px 20px #1e1b4b0c}
+.nav{max-width:1120px;margin:auto;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}.logo-mark{width:42px;height:42px;border-radius:14px;background:conic-gradient(var(--pink),var(--yellow),var(--cyan),var(--purple),var(--pink));display:grid;place-items:center;color:white;font-size:22px;font-weight:900;box-shadow:0 5px 12px #f7258533}
+.logo h1{font-size:17px;line-height:1.1;margin:0;font-weight:900;letter-spacing:-.5px}.logo small{color:var(--muted);font-size:11px}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;background:#f3f4f8;border:1px solid #e7e8ef;border-radius:14px;padding:10px 12px;width:min(310px,48%)}.search input{border:0;outline:0;background:transparent;width:100%;min-width:0;font-size:13px}
+main{max-width:1120px;margin:auto;padding:18px}
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:32px 24px;background:linear-gradient(115deg,#fff0f6 0%,#f2f4ff 54%,#e7fbff 100%);border:1px solid #f0e7ff;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
+.hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-60px;top:-80px;background:linear-gradient(135deg,#ffd16688,#f7258540);pointer-events:none}
+.eyebrow{display:inline-block;background:#fff;border:1px solid #f4d8e8;color:var(--pink);font-weight:800;font-size:11px;padding:7px 11px;border-radius:999px}
+.hero h2{font-size:clamp(30px,5vw,48px);line-height:1.02;letter-spacing:-1.7px;margin:14px 0 12px;color:var(--ink)}.hero h2 span{background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));background-clip:text;color:transparent}
+.hero p{color:#596579;font-size:14px;line-height:1.6;max-width:490px;margin:0 0 18px}
+.hero-btn{display:inline-flex;background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;border:0;border-radius:13px;padding:12px 17px;font-size:13px;font-weight:800;box-shadow:0 8px 18px #f7258530}
+.hero-art{position:relative;min-height:185px;display:grid;place-items:center}.bag{width:138px;height:145px;border-radius:22px 22px 30px 30px;background:linear-gradient(145deg,var(--pink),#ff8fab);box-shadow:0 20px 35px #f7258540;transform:rotate(7deg);display:grid;place-items:center;color:white;font-size:57px;border:4px solid #ffffff88}.bag:before{content:"";position:absolute;width:60px;height:40px;border:8px solid #f72585;border-bottom:0;border-radius:35px 35px 0 0;top:-34px}
+.float{position:absolute;border-radius:18px;padding:11px;background:#fff;box-shadow:0 8px 25px #17255415;font-size:24px}.f1{left:2%;top:12%}.f2{right:0;top:25%}.f3{left:13%;bottom:2%}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 2px 14px}.section-head h3{margin:0;font-size:21px;letter-spacing:-.5px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.categories{display:flex;gap:9px;overflow:auto;padding:2px 1px 8px;scrollbar-width:none}.categories::-webkit-scrollbar{display:none}.cat{white-space:nowrap;border:1px solid #e7e8ef;background:#fff;padding:10px 14px;border-radius:999px;font-weight:750;font-size:12px;color:#495268;cursor:pointer}.cat.active{color:#fff;border-color:transparent;background:linear-gradient(90deg,var(--pink),var(--purple))}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:#fff;border:1px solid #ececf3;border-radius:19px;overflow:hidden;box-shadow:0 6px 18px #17255407;transition:transform .18s,box-shadow .18s}.product:hover{transform:translateY(-3px);box-shadow:0 12px 28px #17255412}.product-img{height:155px;display:grid;place-items:center;font-size:58px;position:relative}.product-img:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff00,#ffffff45);pointer-events:none}.product-img span{filter:drop-shadow(0 8px 5px #17255412)}.tag{position:absolute;left:10px;top:10px;background:#fff;border-radius:999px;padding:5px 8px;font-size:9px;font-weight:900;color:var(--purple);z-index:1}
+.product-info{padding:12px}.product-info h4{font-size:13px;margin:0 0 6px;line-height:1.3}.product-info p{font-size:11px;color:var(--muted);margin:0 0 12px;line-height:1.4}.buy{display:block;text-align:center;background:#f3f4ff;color:#4338ca;border-radius:10px;padding:9px;font-size:11px;font-weight:850}.buy:hover{background:#4338ca;color:#fff}
+.note{margin:24px 0;background:#fff7e6;border:1px solid #ffebbd;padding:14px;border-radius:14px;color:#76541b;font-size:11px;line-height:1.6}
+footer{margin-top:30px;background:#171b3b;color:#fff;padding:28px 18px}.footer-inner{max-width:1120px;margin:auto;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-inner p{font-size:12px;color:#c7cbe0;max-width:460px;line-height:1.6}.footer-badge{display:inline-block;background:#ffffff18;border:1px solid #ffffff2a;border-radius:999px;padding:8px 11px;font-size:11px}
+.empty{grid-column:1/-1;text-align:center;padding:32px;color:var(--muted)}
+@media(max-width:760px){main{padding:13px}.nav{padding:11px 13px;flex-wrap:wrap}.logo h1{font-size:15px}.search{order:3;width:100%;margin:0}.hero{padding:25px 19px;grid-template-columns:1fr}.hero-art{min-height:150px;order:-1}.bag{width:105px;height:110px;font-size:45px}.hero h2{font-size:35px}.hero p{font-size:13px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-img{height:135px}.section-head{margin-top:23px}.section-head h3{font-size:19px}}
+@media(min-width:761px) and (max-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="top-strip">🌈 SMART FINDS • FUN FINDS • EVERYDAY FINDS</div>
+<header><div class="nav">
+  <a class="logo" href="#" aria-label="Mixed Shopping Finds home"><div class="logo-mark">M</div><div><h1>Mixed Shopping Finds</h1><small>Little finds. Big smiles. 💖</small></div></a>
+  <label class="search"><span>🔎</span><input id="search" type="search" placeholder="Search fashion, beauty, home..." aria-label="Search products"></label>
+</div></header>
+<main>
+<section class="hero">
+  <div><span class="eyebrow">✨ YOUR EVERYDAY FINDS</span><h2>Find your next<br><span>favourite thing.</span></h2><p>Discover fun picks for fashion, beauty, home, gadgets and more — all in one colourful place.</p><a class="hero-btn" href="#products">Explore finds&nbsp; →</a></div>
+  <div class="hero-art" aria-hidden="true"><div class="float f1">👗</div><div class="float f2">🎧</div><div class="float f3">💄</div><div class="bag">🛍️</div></div>
+</section>
+<div class="section-head"><div><h3>Shop by category</h3><p>Choose a category to find your kind of favourite.</p></div></div>
+<div class="categories" id="categories">
+<button class="cat active" data-category="All">✨ All Finds</button><button class="cat" data-category="Fashion">👗 Fashion</button><button class="cat" data-category="Beauty">💄 Beauty</button><button class="cat" data-category="Home">🏡 Home & Kitchen</button><button class="cat" data-category="Electronics">🎧 Electronics</button><button class="cat" data-category="Kids">🧸 Kids</button><button class="cat" data-category="Accessories">💍 Accessories</button>
+</div>
+<div class="section-head" id="products"><div><h3>Trending finds <span style="color:#f72585">♥</span></h3><p>Sample product cards — add your own shopping links to go live.</p></div></div>
+<div class="grid" id="grid">
+<article class="product" data-category="Fashion" data-name="Everyday fashion kurti"><div class="product-img" style="background:linear-gradient(135deg,#ffe1ee,#ffc3d9)"><b class="tag">FASHION FIND</b><span>👗</span></div><div class="product-info"><h4>Everyday Fashion Pick</h4><p>Fresh styles for your everyday look.</p><a class="buy" href="#" data-store="Meesho">View product ↗</a></div></article>
+<article class="product" data-category="Beauty" data-name="beauty makeup skincare essentials"><div class="product-img" style="background:linear-gradient(135deg,#eee4ff,#d9c6ff)"><b class="tag">BEAUTY PICK</b><span>💄</span></div><div class="product-info"><h4>Beauty & Self-Care</h4><p>Little essentials for your routine.</p><a class="buy" href="#" data-store="Meesho">View product ↗</a></div></article>
+<article class="product" data-category="Home" data-name="home kitchen storage decor"><div class="product-img" style="background:linear-gradient(135deg,#fff0bd,#ffe08a)"><b class="tag">HOME FAVOURITE</b><span>🏡</span></div><div class="product-info"><h4>Home & Kitchen Helper</h4><p>Useful finds for a cosy home.</p><a class="buy" href="#" data-store="Amazon">View product ↗</a></div></article>
+<article class="product" data-category="Electronics" data-name="electronics headphones gadgets"><div class="product-img" style="background:linear-gradient(135deg,#d9f5ff,#a8e8ff)"><b class="tag">GADGET PICK</b><span>🎧</span></div><div class="product-info"><h4>Everyday Tech Find</h4><p>Handy gadgets and tech accessories.</p><a class="buy" href="#" data-store="Flipkart">View product ↗</a></div></article>
+<article class="product" data-category="Kids" data-name="kids toys teddy gifts"><div class="product-img" style="background:linear-gradient(135deg,#dcffe7,#a9f5c4)"><b class="tag">KIDS PICK</b><span>🧸</span></div><div class="product-info"><h4>Toys & Kids Finds</h4><p>Colourful ideas for little smiles.</p><a class="buy" href="#" data-store="Meesho">View product ↗</a></div></article>
+<article class="product" data-category="Accessories" data-name="jewellery accessories bags"><div class="product-img" style="background:linear-gradient(135deg,#ffe8c7,#ffd19a)"><b class="tag">STYLE EXTRA</b><span>💍</span></div><div class="product-info"><h4>Accessories & More</h4><p>Finishing touches for your style.</p><a class="buy" href="#" data-store="Amazon">View product ↗</a></div></article>
+<article class="product" data-category="Fashion" data-name="handbag purse fashion bag"><div class="product-img" style="background:linear-gradient(135deg,#e2e7ff,#c3ceff)"><b class="tag">TREND ALERT</b><span>👜</span></div><div class="product-info"><h4>Bag of the Day</h4><p>Practical style for every outing.</p><a class="buy" href="#" data-store="Flipkart">View product ↗</a></div></article>
+<article class="product" data-category="Home" data-name="water bottle organiser kitchen"><div class="product-img" style="background:linear-gradient(135deg,#d5fff8,#a4f2e7)"><b class="tag">USEFUL FIND</b><span>🥤</span></div><div class="product-info"><h4>Useful Daily Essential</h4><p>Small helpers for busy days.</p><a class="buy" href="#" data-store="Meesho">View product ↗</a></div></article>
+</div>
+<div class="note"><strong>📌 Website owner note:</strong> These are sample cards. Before sharing this website, replace each “View product” link (#) with your real product or affiliate URL. Product names, prices and availability should be checked before publishing.</div>
+</main>
+<footer><div class="footer-inner"><div><strong style="font-size:17px">🌈 Mixed Shopping Finds</strong><p>Your colourful corner for fashion, beauty, home essentials, electronics, kids' picks and more. Shop smart, shop happy!</p></div><div><span class="footer-badge">Meesho • Flipkart • Amazon & more</span><p>Some links may be affiliate links. If you buy through them, we may earn a commission where applicable.</p></div></div></footer>
+<script>
+const buttons=[...document.querySelectorAll('.cat')], cards=[...document.querySelectorAll('.product')], search=document.getElementById('search');let category='All';
+function filter(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{const matchCat=category==='All'||card.dataset.category===category;const matchText=(card.dataset.name+' '+card.innerText).toLowerCase().includes(q);card.style.display=matchCat&&matchText?'':'none';if(matchCat&&matchText)shown++});let empty=document.querySelector('.empty');if(!shown){if(!empty){empty=document.createElement('div');empty.className='empty';empty.textContent='No finds match that search yet. Try another word 💖';document.getElementById('grid').appendChild(empty)}}else if(empty)empty.remove()}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{category=btn.dataset.category;buttons.forEach(b=>b.classList.toggle('active',b===btn));filter()}));search.addEventListener('input',filter);
+document.querySelectorAll('.buy').forEach(link=>link.addEventListener('click',e=>{if(link.getAttribute('href')==='#'){e.preventDefault();alert('Add your real '+link.dataset.store+' product URL to this button before publishing the website.')}}));
+</script>
+</body>
+</html>
